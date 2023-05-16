@@ -119,6 +119,7 @@ io.on("connection", async (socket) => {
               to,
             };
             socket.to(to).to(socket.userID).emit("private message", message);
+            socket.to(to).to(socket.userID).emit("upload", {file,extension});
             messageStore.saveMessage(message);
         }
         else{
