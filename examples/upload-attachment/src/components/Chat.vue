@@ -38,7 +38,7 @@ export default {
         socket.emit("private message", {
           content,
           to: this.selectedUser.userID,
-        });
+        },(id)=>{console.log(id);});
         this.selectedUser.messages.push({
           content,
           fromSelf: true,

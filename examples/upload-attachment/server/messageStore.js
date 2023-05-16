@@ -46,6 +46,14 @@ class RedisMessageStore extends MessageStore {
         return results.map((result) => JSON.parse(result));
       });
   }
+
+  findMessageById(userID,msgID) {
+    return this.redisClient
+      .lrange(`messages:${userID}`, 0, -1)
+      .then((results) => {
+        return results.filter(msg => msg.messageID === msgID).map((result) => JSON.parse(result));
+      });
+  }
 }
 
 module.exports = {

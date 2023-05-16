@@ -2,6 +2,8 @@
 node_modules
 /dist
 
+# credentials
+server/serviceAccountKey.json
 
 # local env files
 .env.local
